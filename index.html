@@ -46,20 +46,28 @@ var _hmt = _hmt || [];
   点击号码一键拨号<br />
     <a id="tel" href="tel:17503962297" title="点击号码一键拨号" >17503962297</a> 
 <br />
-河南驻马店&nbsp;中国联通<br />
-<input type="text" value="17503962297" id="myInput">
-<button onclick="myFunction()">复制</button>
+河南驻马店&nbsp;联通<br />
+<pre><code class="language-js">
+17503962297
+</code></pre>
 <script>
-function myFunction() {
-  var copyText = document.getElementById("myInput");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); 
-  navigator.clipboard.writeText(copyText.value);
-  alert("复制的文本为: " + copyText.value);
+function addCopyButtons() {
+ document.querySelectorAll('pre code').forEach(block => {
+   const btn = document.createElement('button');
+   btn.textContent = '复制';
+   btn.className = 'copy-btn';
+   btn.onclick = () => {
+     navigator.clipboard.writeText(block.textContent.trim())
+       .then(() => alert('复制成功'))
+       .catch(() => alert('复制失败'));
+   };
+   block.parentNode.insertBefore(btn, block);
+ });
 }
+document.addEventListener('DOMContentLoaded', addCopyButtons);
 </script><br />
 打开微信或支付宝<br />
-搜索手机号加我为朋友</div><br />
+搜索号码加我为好友</div><br />
 <div class="tel"><a href="https://hy.yunhaoka.com/#/pages/micro_store/index?agent_id=d673779728a7d80f2210db56129c38e0">互联网卡线上卖场</a><br />
 </div>
 <div class="tel">
